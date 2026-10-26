@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Poems · Susmita Jena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#150d1a; --ink:#eadfe8; --dim:#a898b2; --coral:#e9958f; --violet:#b7a3e3; --line:#3a2a46;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0; min-height:100vh; color:var(--ink); font-family:var(--serif); font-size:20px; line-height:1.7;
+  background:radial-gradient(ellipse at 50% 0%,#2b1a35 0%,var(--bg) 62%) fixed, var(--bg);
+  overflow-x:hidden;
+}
+body::after{content:""; position:fixed; inset:0; pointer-events:none; box-shadow:inset 0 0 160px 40px rgba(0,0,0,.55)}
+main{position:relative; z-index:1; max-width:620px; margin:0 auto; padding:56px 26px 80px}
+a{color:inherit}
+.top{display:flex; justify-content:space-between; font-style:italic; color:var(--dim); font-size:18px}
+.top a{text-decoration:none; border-bottom:1px solid transparent}
+.top a:hover{color:var(--coral); border-color:var(--coral)}
+.orn{display:flex; align-items:center; gap:14px; justify-content:center; color:var(--coral); margin:26px 0}
+.orn::before,.orn::after{content:""; flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--line),transparent)}
+.orn i{width:7px; height:7px; background:var(--coral); transform:rotate(45deg); flex:none}
+h1{font-weight:500; font-size:clamp(44px,12vw,68px); line-height:1.05; letter-spacing:.02em; margin:44px 0 6px; text-align:center}
+.by{text-align:center; font-style:italic; color:var(--violet); margin:0; letter-spacing:.04em}
+.epi{text-align:center; font-style:italic; color:var(--dim); max-width:420px; margin:0 auto; font-size:19px}
+.toc{list-style:none; margin:0; padding:0}
+.toc li{border-bottom:1px solid var(--line)}
+.toc a{display:flex; align-items:baseline; gap:18px; padding:18px 4px; text-decoration:none; transition:padding .25s,color .25s}
+.toc a:hover{padding-left:14px; color:var(--coral)}
+.num{font-style:italic; color:var(--coral); width:2.4em; flex:none; font-size:18px}
+.ttl{font-size:26px; font-weight:500; flex:1; line-height:1.25}
+.dt{font-style:italic; color:var(--dim); font-size:17px}
+.read h2{font-weight:500; font-size:clamp(34px,9vw,48px); line-height:1.15; text-align:center; margin:40px 0 6px}
+.read .dt{display:block; text-align:center; margin-bottom:6px}
+.body{white-space:pre-wrap; font-size:22px; line-height:1.9; text-align:center; margin:0}
+.body::first-letter{color:var(--coral); font-size:1.5em}
+.nav{display:flex; justify-content:space-between; gap:16px; font-style:italic; margin-top:10px}
+.nav a{text-decoration:none; color:var(--dim)}
+.nav a:hover{color:var(--coral)}
+.nav span{flex:1}.nav .r{text-align:right}
+footer{margin-top:60px; text-align:center; font-style:italic; color:var(--dim); font-size:17px}
+.fade{animation:f .7s ease both}
+@keyframes f{from{opacity:0; transform:translateY(8px)}to{opacity:1; transform:none}}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+// ❦ Your poems ❦
+var POEMS=[
+  {title:"A Yellow Carnation", text:"So failing and falling apart;\nLife makes no sense to me,\nIf I can't find success later-\nGod forbid the curse of being a failure,\nDefinitely kills me inside completely.\n\nBut is it really my fault?\nThat despite after everything\nAt last, my people misunderstand me so well-\nAnd never for once they ever\nWill resonate the voices that my mind says.\n\nThe girl who once promised joy now wears\nThe badge of failure, shame, and pain,\nLabeled selfish, arrogant, and heartless—\nA reflection of the love that's lost,\nA family tie that's frayed.\n\n‘ONLY THE WISE UNDERSTAND\nTHE UNFATHOMABLE THINGS OF A SOUL’\nThey said.\nSo where are my people? When I wanted\nTheir hand holding? Their love and affection-\nWhere are my OWN BLOODED PEOPLE?\nWho carry the paradoxical pride of owning me\nYet abandon me at the times of need?"},
+  {title:"A Frost Heart", text:"The memories of late summer\nfound me as a fatalist—\nlike a family searching for\nits lost child;\nwaking up already tired\nof being alive.\n\nA mind that has learned too much,\na soul rotting quietly behind\nthe sea of total agonisation—\nand deep-seated glances fixated\nin the reflection of your eyes.\n\nPretty little frost heart,\nthat yearns to fight\nin its most dreaded ways;\nyet never a sign of stopping—\nits heartbeats relentlessly,\nvery strong, very scary, indeed.\n\nAnd in the very end, it's all\njust another sign\nof glacial misery."},
+  {title:"That Ink-Stained December", text:"December arrives—\nThe month-end of fleeting sorrows\nOr the onset of anxiety?\nI’m uncertain how to define it,\nBecause, like all of us,\nThis year has been a rollercoaster.\n\nMany recall their deepest memories,\nSome attempt to retrogress into painful pasts,\nAnd some of us push limits,\nWriting and crying obsessively,\nWishing to be understood in our own way—\nBut oh! We end up interpreting the best for everyone.\n\n‘THERE’S NOTHING MUCH TO SAY TO THOSE\nWHO CAN’T TELL THE DIFFERENCE\nBETWEEN BLACK AND WHITE,\nBECAUSE EVERYTHING AROUND THEM IS GREY.’\nIt will never be a happy ending—\nbecause we carry the enigma of everything;\nnot just this December, but every December.\n\nLife is a precious gift from God—\nOr a curse in disguise?\nA timeless debate, I leave to you,\nBecause each of us is different—\nWith unique thoughts, feelings, and perceptions.\nSo, the story doesn’t end here; not at all.\nIt only ends when the ink of this pen\nStops bleeding onto paper in some December."},
+  {title:"Dried Roses and Peace", text:"Bittersweet emotions within -\nYet here you are sanguine,\nChoosing love over everytime\nRepresenting as the best crime.\n\nThere's a lot of ambiguity in me\nHowever, the thoughts are free!\nNourished ones live in hell\nWhile the quiet finds home in a cockleshell.\n\nYou dare ask me what life is to you?\nAnd I am already talking through my eyes; you know who.\nAn extraordinary gift of the Almighty\n'Or a curse in disguise,' I said wisely.\n\nWhatever you ponder upon\nYou and I are going to wait till dawn-\nTo witness everything as a tainted masterpiece\nSilently opting for dried roses and peace."},
+  {title:"The Unspoken Veracity", text:"I am an ENFJ,\nReading hearts like open books\nBoth inside and out;\nYet I still choose to be hurt\nAs I am their solitary well-wisher.\n\nSometimes it’s insane\nTo watch the world\nLost in chaos!\nYet I strive to set it right,\nFor I am the unpaid therapist.\n\nHow amusing it is!\nThat many take me for granted,\nCasting me as the villain-\nWhile they don the hero’s cloak\nThough my type is known as the ‘Protagonists’.\n\nYou see, people are like paper;\nOnce torn or lost, you can’t restore them.\nAs an ENFJ,\nSome may disdain us\nFor our idealism.\nRemember that the paper you lost\nFinds solace within,\nMending its creases\nSimply by being with us."},
+  {title:"Life in the Shadows", text:"So, no one truly sees\nThe real me;\nAnd sadly, I haven’t either—\nFor we all inhabit the realm of\n‘PERSONALITY DISORDER’.\n\nThere’s something oddly addictive\nAbout mental anguish and self-infliction—\nIt’s troubling, yet\nRavishingly exquisite to witness\nMyself in shifting reflections.\n\nIs it truly worth living for those\nWhom I love with all my heart?\nOr is it merely me,\nWandering through their eyes?\nRegardless of the choice, it surely masks\nThe essence of who I am.\n\nAfter all this time, they still possess\nThe audacity to inquire\nAbout my true self\nAnd the life I lead.\nGoodness—these futile humans,\nWeren't meant for each other."},
+  {title:"A Pleasant Journey", text:"A pleasant journey, or so it seems.\nCurses!\nLife has felt unbearably tough—\nThe same old complaints from us humans,\nEchoing through our days.\n\n“Oh my goodness!”\nGoodness gracious,\nHow generous life can be—\nDespite the turmoil, beauty shines,\nAnd still, it’s been a pleasant journey.\n\nConsider the paradox that we embody—\nThoughts that swirl and twist,\nDefining life, death, and the divine,\nPerhaps we do better as\n“Foolish beings, simply existing.”\nYet we possess the gift of perception,\nTo capture beauty, sorrow, and love,\nAll intertwined in a single moment.\n\nWise are those who embrace this truth—\nIf they have found it,\nThen surely, they’ve had a\nPleasant journey."},
+  {title:"Paradox of Perfection", text:"The world believes that beauty lies within,\nThough many of us seem to forget it;\nThis is the painful prestige we carry,\nA tainted grace that dwells within.\n\nYet glory to the soul that stands out bright,\nMerging the blemishes into one radiant light;\nIt emerges as a powerful entity,\nRevealing the ultimate truth of divinity."},
+  {title:"As an Artist", text:"As an artist,\nI know how to paint my scars all along,\nHide my feelings\nLike a painting with a secret.\n\nAs a writer,\nI keep writing the words\nThat I wish to hear from others\nThat I wish others could hear from me, too.\n\nAs a poet,\nI have been bestowed by divine grace\nTo describe the alluring beauty\nWithin you and me.\n\nAfter all this time,\nThe blessing of being multifaceted\nIs more of a curse\nFor to behold the world's enchanting grace,\nIn all its tainted glory\nAnd capture the ‘best’ of it,\nOne must possess boldness and bravery\nTo endure the remorse and sorrow."},
+  {title:"True Beauty and Gratituity", text:"How lovely it is!\nTo take a leap of faith;\ninto the glimmering pool\nof the beauty in ourselves.\n\nIt lies forever out of reach;\nour life a desperate pursuit\nto reach that sweet!\nGod left us to ponder\nwhether to pursue or to lie.\nWe find ourselves thinking about the answer,\nWhy? C’est la vie!\n\nEven though the lord,\nhas given the ’all’ to us;\nWe forget that each of his works\nis simply unique and beautiful!\n\nBut time isn’t over yet,\nhence let’s look into ourselves again;\nWe shall adore ourselves and others too."},
+  {title:"Beyond the Veil", text:"What lies beyond this earthly realm?\nDeath- for many it is a pitiful sight\nfor some it is just fear that overwhelms!\nAnd for few it is salvation.\n\nMany do wonder why it must be so,\nThis devastation, a haunting refrain...\nFew ponder softly, with heavy hearts\nWhether it is anguish or merely pain.\n\nYet painful anguish- something as inevitable as death;\nIs a curse to humankind, so dire\nWhere people choose to relinquish all\nPreferring death’s solace to grief's cruel fire.\n\nBut I believe\nPain and death may not be together;\nFor 'To live is the greatest act of courage! '\nAnd living a life is full of agony and struggles.\n\nWhile death;\nIt is an 'escape from reality ' moment\nForever.\nAn eternal freedom from all the miseries,\nAn ephemeral; momentary passage of time\nThat finally connects you to the Almighty!\nForever."},
+  {title:"Divine Union Found", text:"A hopeless romantic woman,\nMelodious artist, with a gentle soul.\nThough not a poet, by name,\nHer elegance and class remain\nAs ethereal as the Lord's own creation.\n\nSometimes, even the Lord is shy\nTo face him, wonderstruck by his own design.\nHis eyes, deeper than the ocean blue\nReflect the beauty of his love, shining through.\nHe is the epitome of love, a masterpiece divine."},
+  {title:"Torn Between", text:"What's painful you ask?\nwell, it is the chains of safety;\nthat bind me tight;\nwhere freedom's whisper\nis a distant light.\n\nIt's a painful trade afterall\nfor a peaceful night,\nyet my heart screams\nin an endless fight."}
+];
+var HOME="Sush%20%C2%B7%20pixel%20linktree.html";
+var ROM=["i","ii","iii","iv","v","vi","vii","viii","ix","x","xi","xii","xiii","xiv","xv","xvi","xvii","xviii","xix","xx"];
+var app=document.getElementById("app");
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function orn(){var d=el("div","orn");d.appendChild(el("i"));return d}
+function renderTop(back){
+  var t=el("div","top"),a=el("a",null,back?"\u2190 all poems":"\u2190 back");
+  a.href=back?"#":HOME;t.appendChild(a);t.appendChild(el("span",null,"Susmita Jena"));return t;
+}
+function index(){
+  app.innerHTML="";var w=el("div","fade");
+  w.appendChild(renderTop(false));
+  w.appendChild(el("h1",null,"Poems"));
+  w.appendChild(el("p","by","words kept after dark"));
+  w.appendChild(orn());
+  w.appendChild(el("p","epi","\u201CAn epigraph or a favourite line can live here.\u201D"));
+  w.appendChild(orn());
+  var ul=el("ul","toc");
+  POEMS.forEach(function(p,i){
+    var li=el("li"),a=el("a");a.href="#"+(i+1);
+    a.appendChild(el("span","num",ROM[i]||String(i+1)));
+    a.appendChild(el("span","ttl",p.title));
+    a.appendChild(el("span","dt",p.date||""));
+    li.appendChild(a);ul.appendChild(li);
+  });
+  w.appendChild(ul);
+  w.appendChild(el("footer",null,"more to come, quietly."));
+  app.appendChild(w);window.scrollTo(0,0);
+}
+function read(i){
+  var p=POEMS[i];if(!p){index();return}
+  app.innerHTML="";var w=el("div","read fade");
+  w.appendChild(renderTop(true));
+  w.appendChild(el("h2",null,p.title));
+  w.appendChild(el("span","dt",p.date||""));
+  w.appendChild(orn());
+  w.appendChild(el("p","body",p.text));
+  w.appendChild(orn());
+  var n=el("div","nav"),l=el("span"),r=el("span","r");
+  if(i>0){var a=el("a",null,"\u2190 "+POEMS[i-1].title);a.href="#"+i;l.appendChild(a)}
+  if(i<POEMS.length-1){var b=el("a",null,POEMS[i+1].title+" \u2192");b.href="#"+(i+2);r.appendChild(b)}
+  n.appendChild(l);n.appendChild(r);w.appendChild(n);
+  app.appendChild(w);window.scrollTo(0,0);
+}
+function route(){var h=parseInt(location.hash.slice(1),10);h?read(h-1):index()}
+window.addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
